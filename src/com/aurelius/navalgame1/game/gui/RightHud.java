@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 import com.aurelius.navalgame1.game.entity.MoveableEntity;
 import com.aurelius.navalgame1.game.entity.PortEntity;
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 import com.aurelius.navalgame1.pavo.gui.controls.Control;
 import com.aurelius.navalgame1.util.FileUtils;
 
@@ -20,7 +20,7 @@ public class RightHud {
 	String movement = new String("");
 	String missiles = new String("");
 	
-	Entity display;
+	Asset display;
 	MoveableEntity move;
 	
 	public RightHud(Control parent,int width, int height){
@@ -39,7 +39,7 @@ public class RightHud {
 		}
 	}
 	
-	public void setEntity(Entity e,MoveableEntity me){
+	public void setEntity(Asset e,MoveableEntity me){
 		display = e;
 		move = me;
 	}

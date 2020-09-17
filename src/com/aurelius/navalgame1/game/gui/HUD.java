@@ -7,7 +7,7 @@ import com.aurelius.navalgame1.game.entity.PortEntity;
 import com.aurelius.navalgame1.game.turn.DamageCalculator;
 import com.aurelius.navalgame1.game.turn.TurnManager;
 import com.aurelius.navalgame1.gui.MainMenuWindow;
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 import com.aurelius.navalgame1.pavo.grid.GridHelper;
 import com.aurelius.navalgame1.pavo.grid.Location;
 import com.aurelius.navalgame1.pavo.grid.Tile;
@@ -17,7 +17,7 @@ import com.aurelius.navalgame1.pavo.gui.controls.PWindow;
 public class HUD extends PWindow{
 	
 	TurnManager tm;
-	Entity display;
+	Asset display;
 	MoveableEntity move;
 	boolean pinned = true;
 	RightHud right;
@@ -53,7 +53,7 @@ public class HUD extends PWindow{
 					g.drawString(""+tm.getTurn().getPlayer().name,(width/3)+25,25);
 	}
 	
-	public void setEntity(Entity e){
+	public void setEntity(Asset e){
 		display = e;
 		if(display!=null&&display.getHandle()%10 == 1)
 			move = (MoveableEntity)display;
@@ -155,9 +155,9 @@ public class HUD extends PWindow{
 			return false;
 		int startr = move.getLocation().getRow();
 		int startc = move.getLocation().getCol();
-		Tile<Entity> temp = move.getManager().getTile(y,x);
+		Tile<Asset> temp = move.getManager().getTile(y,x);
 		MoveableEntity there = null;
-		Entity e = null;
+		Asset e = null;
 		if(temp!=null){
 			e = temp.getEntity();
 			if(e.getHandle()%10 == 1){
@@ -195,9 +195,9 @@ public class HUD extends PWindow{
 
 		int startr = move.getLocation().getRow();
 		int startc = move.getLocation().getCol();
-		Tile<Entity> temp = move.getManager().getTile(y,x);
+		Tile<Asset> temp = move.getManager().getTile(y,x);
 		MoveableEntity there = null;
-		Entity e = null;
+		Asset e = null;
 		if(temp!=null){
 			e = temp.getEntity();
 			if(e.getHandle()%10 == 1){

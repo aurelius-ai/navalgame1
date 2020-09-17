@@ -11,7 +11,7 @@ import com.aurelius.navalgame1.game.entity.Boat;
 import com.aurelius.navalgame1.game.turn.PortShop;
 import com.aurelius.navalgame1.game.turn.ShipShop;
 import com.aurelius.navalgame1.game.turn.TurnManager;
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 import com.aurelius.navalgame1.pavo.gui.NewWindowManager;
 import com.aurelius.navalgame1.pavo.gui.controls.Control;
 import com.aurelius.navalgame1.pavo.gui.controls.PButton;
@@ -37,7 +37,7 @@ public class MidHud{
 	PButton nextMove;
 	PButton nextEntity;
 	
-	Entity display;
+	Asset display;
 	MoveableEntity moveE;
 	NewWindowManager parent;
 	
@@ -63,7 +63,7 @@ public class MidHud{
 		drawText(g);
 	}
 	
-	public void setEntity(Entity e,MoveableEntity me){
+	public void setEntity(Asset e,MoveableEntity me){
 		moveE = me;
 		if(display!=null){
 			if(moveE==null || !display.equals(moveE)){
