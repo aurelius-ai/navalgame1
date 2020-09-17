@@ -133,8 +133,6 @@ public class NavalBattle {
 	}
 	
 	/**
-	 * Attempt to set <code>DefaultLookAndFeel</code> to Nimbus and
-	 * alert the users if the process fails.
 	 */
 	private static void setDefaultLookAndFeel(){
 		try {
