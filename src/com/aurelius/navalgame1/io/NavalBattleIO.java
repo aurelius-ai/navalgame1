@@ -9,10 +9,10 @@ import java.io.File;
 import com.aurelius.navalgame1.NavalBattle;
 import com.aurelius.navalgame1.io.SettingsAttribute;
 import com.aurelius.navalgame1.pavo.Game;
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 import com.aurelius.navalgame1.util.FileUtils;
 
-import maximusvladimir.dagen.Rand;
+import ellison.oliver.Rand;
 
 /**
  * NavalBattle IO manager.
@@ -109,7 +109,7 @@ public class NavalBattleIO {
 		String ultimatePath = FileUtils.getSavingDirectory().getAbsolutePath() + "\\saves\\" + name + "\\" + new Rand(name).nextString(10,15) + ".inf";
 		String entitycomposition = "";
 		for (int c = 0; c < g.getWorld().getEntityManager().getTotalEntities(); c++) {
-			Entity ent = g.getWorld().getEntityManager().getEntity(c);
+			Asset ent = g.getWorld().getEntityManager().getEntity(c);
 			if (ent != null) {
 				entitycomposition += "(" + ent.getLocation().getRow() + "," +
 						ent.getLocation().getCol() + "," + ent.getCurrentId() + ")";
