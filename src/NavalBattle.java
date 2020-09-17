@@ -169,7 +169,6 @@ public class NavalBattle {
 	}
 	
 	/**
-	 * Global method in the event of something terrible. Reports the exception to the user for bug reporting.
 	 * @param thr
 	 */
 	public static void criticalError(Throwable thr) {
