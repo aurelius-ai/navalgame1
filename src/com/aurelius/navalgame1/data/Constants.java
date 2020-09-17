@@ -7,7 +7,7 @@ package com.aurelius.navalgame1.data;
 
 import com.aurelius.navalgame1.gui.listeners.*;
 
-import maximusvladimir.dagen.Rand;
+import ellison.oliver.Rand;
 
 public class Constants {
 	
