@@ -178,7 +178,7 @@ public class NavalBattle {
 		textArea.setText(Constants.CRITICAL_ERROR_HEADER + writer.toString());
 
 		JScrollPane scrollPane = new JScrollPane(textArea);		
-		scrollPane.setPreferredSize(new Dimension(350, 150));
+		scrollPane.setPreferredSize(new Dimension(355, 155));
 
 		JOptionPane.showMessageDialog(new JFrame(), scrollPane, "Critical Error", JOptionPane.ERROR_MESSAGE);
 		System.exit(0);
