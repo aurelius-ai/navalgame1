@@ -1,2 +1,2 @@
 # navalgame1
-Developed strategic naval games using Apache Commons IO, Lang and Codec.
+Developed strategic naval games in java using Apache Commons IO, Lang and Codec.
