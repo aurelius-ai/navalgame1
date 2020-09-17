@@ -1,7 +1,7 @@
 package com.aurelius.navalgame1.game.entity;
 
 import com.aurelius.navalgame1.pavo.Game;
-import com.aurelius.navalgame1.pavo.grid.EntityManager;
+import com.aurelius.navalgame1.pavo.grid.AssetManager;
 import com.aurelius.navalgame1.pavo.grid.GridedEntityTileOrientation;
 import com.aurelius.navalgame1.pavo.grid.Location;
 
@@ -12,7 +12,7 @@ public class Boat extends MoveableEntity {
 	private boolean submerged=false;
 	private boolean canSubmerge=true;
 	
-	public Boat(EntityManager em, Location loc,byte orientation) {
+	public Boat(AssetManager em, Location loc,byte orientation) {
 		super(em, loc, SUBMARINE_ID,orientation);
 		imgLocation="drawable-game/submarine/submarine.png";
 		Game g = em.getWorld().getGame();

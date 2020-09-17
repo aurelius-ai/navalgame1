@@ -1,20 +1,20 @@
 package com.aurelius.navalgame1.game.entity;
 
-import com.aurelius.navalgame1.pavo.grid.Entity;
-import com.aurelius.navalgame1.pavo.grid.EntityManager;
+import com.aurelius.navalgame1.pavo.grid.Asset;
+import com.aurelius.navalgame1.pavo.grid.AssetManager;
 import com.aurelius.navalgame1.pavo.grid.GridedEntityTileOrientation;
 import com.aurelius.navalgame1.pavo.grid.Location;
 
-public class Animation extends Entity {
+public class Animation extends Asset {
 	private static final long serialVersionUID = 1L;
 	private GridedEntityTileOrientation[] animationids;
 
 	/**
 	 * @param em The EnitityManager.
-	 * @param loc The Location of the Entity.
+	 * @param loc The Location of the Asset.
 	 * @param animationFrameIds The animation frame sequences.
 	 */
-	public Animation(EntityManager em, Location loc,byte orientation, GridedEntityTileOrientation... animationFrameIds) {
+	public Animation(AssetManager em, Location loc,byte orientation, GridedEntityTileOrientation... animationFrameIds) {
 		super(em, loc, animationFrameIds[0],orientation);
 		animationids = animationFrameIds;
 		handle = 3;

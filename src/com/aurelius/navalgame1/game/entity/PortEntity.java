@@ -4,19 +4,19 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import maximusvladimir.dagen.Rand;
-
 import com.aurelius.navalgame1.data.NavalGameData;
 import com.aurelius.navalgame1.game.NavalManager;
 import com.aurelius.navalgame1.game.turn.TurnManager;
 import com.aurelius.navalgame1.pavo.Game;
 import com.aurelius.navalgame1.pavo.PavoHelper;
 import com.aurelius.navalgame1.pavo.ProceduralLayeredMapGenerator;
-import com.aurelius.navalgame1.pavo.grid.EntityManager;
+import com.aurelius.navalgame1.pavo.grid.AssetManager;
 import com.aurelius.navalgame1.pavo.grid.GridHelper;
 import com.aurelius.navalgame1.pavo.grid.GridedEntityTileOrientation;
 import com.aurelius.navalgame1.pavo.grid.Location;
 import com.aurelius.navalgame1.util.NavalUtils;
+
+import ellison.oliver.Rand;
 
 public class PortEntity extends Animation {
 	private static final long serialVersionUID = 1L;
@@ -31,7 +31,7 @@ public class PortEntity extends Animation {
 	 * @param team
 	 * @param animationFrameIds
 	 */
-	public PortEntity(EntityManager em, Location loc, byte orientation) {
+	public PortEntity(AssetManager em, Location loc, byte orientation) {
 		super(em, loc, orientation, generatePort(em,loc));
 		icon = em.getImage(em.getTile(loc));
 		this.setAlternatingDirection(false);
@@ -51,7 +51,7 @@ public class PortEntity extends Animation {
 		}
 	}
 	
-	private static GridedEntityTileOrientation[] generatePort(EntityManager man, Location loc) {
+	private static GridedEntityTileOrientation[] generatePort(AssetManager man, Location loc) {
 		BufferedImage flash1 = null, flash2 = null, flash3 = null, flash4 = null;
 		
 		flash1 = new BufferedImage(50,50,BufferedImage.TYPE_4BYTE_ABGR);

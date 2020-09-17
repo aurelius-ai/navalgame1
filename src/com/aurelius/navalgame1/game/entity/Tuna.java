@@ -2,7 +2,7 @@ package com.aurelius.navalgame1.game.entity;
 
 import com.aurelius.navalgame1.pavo.Game;
 import com.aurelius.navalgame1.pavo.PavoHelper;
-import com.aurelius.navalgame1.pavo.grid.EntityManager;
+import com.aurelius.navalgame1.pavo.grid.AssetManager;
 import com.aurelius.navalgame1.pavo.grid.GridedEntityTileOrientation;
 import com.aurelius.navalgame1.pavo.grid.Location;
 
@@ -16,7 +16,7 @@ public class Tuna extends Animation {
 	 * @param loc
 	 * @param animationFrameIds
 	 */
-	public Tuna(EntityManager em, Location loc,byte orientation, GridedEntityTileOrientation... animationFrameIds) {
+	public Tuna(AssetManager em, Location loc,byte orientation, GridedEntityTileOrientation... animationFrameIds) {
 		super(em, loc, orientation, animationFrameIds);
 		nextIndex = Game.Settings.rand.nextInt(0,3);
 		imgLocation="drawable-game/other/whaleright.png";
@@ -32,8 +32,8 @@ public class Tuna extends Animation {
 		else if (tickTime % 6 == 0) {
 			updateFrame();
 		}
-	
-	
+		if (tickTime % 5 == 0)
+			updateSurroundings();
 	}
 	
 	public void onMouseDown(int x, int y, boolean leftClick) {
@@ -43,6 +43,23 @@ public class Tuna extends Animation {
 		//getManager().getWorld().animatedSetLoc(loc2,0.0556666662f);
 	}
 	
-
+	
+	private void updateSurroundings() {
+		for (int r = -3; r < 3; r++) {
+			for (int c = -3; c < c; c++) {
+				int rr = getLocation().getRow();
+				int cc = getLocation().getCol();
+				int rrr = rr+r;
+				int ccc = cc+c;
+				if (rrr >= 0 && ccc >= 0 && ccc < 2*PavoHelper.getGameWidth(getManager().getWorld().getWorldSize()) 
+						&& rrr < 2*PavoHelper.getGameHeight(getManager().getWorld().getWorldSize()) &&
+						getManager().getTile(rrr, ccc) != null&& getManager().getTile(rrr, ccc).getEntity() instanceof BattleShip) {
+					speedy = true;
+					return;
+				}
+			}
+		}
+		speedy = false;
+	}
 
 }

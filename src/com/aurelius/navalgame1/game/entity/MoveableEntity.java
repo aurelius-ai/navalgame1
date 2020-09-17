@@ -3,14 +3,14 @@ package com.aurelius.navalgame1.game.entity;
 import com.aurelius.navalgame1.data.NavalGameData;
 import com.aurelius.navalgame1.game.NavalManager;
 import com.aurelius.navalgame1.pavo.Game;
-import com.aurelius.navalgame1.pavo.grid.Entity;
-import com.aurelius.navalgame1.pavo.grid.EntityManager;
+import com.aurelius.navalgame1.pavo.grid.Asset;
+import com.aurelius.navalgame1.pavo.grid.AssetManager;
 import com.aurelius.navalgame1.pavo.grid.GridedEntityTileOrientation;
 import com.aurelius.navalgame1.pavo.grid.Location;
 import com.aurelius.navalgame1.pavo.grid.Tile;
 import com.aurelius.navalgame1.util.NavalUtils;
 
-public class MoveableEntity extends Entity {
+public class MoveableEntity extends Asset {
 	private static final long serialVersionUID = 1L;
 	protected int maxMovement;
 	protected int moved;
@@ -36,7 +36,7 @@ public class MoveableEntity extends Entity {
 	 * @param id
 	 * @param orientation
 	 */
-	public MoveableEntity(EntityManager em, Location loc,
+	public MoveableEntity(AssetManager em, Location loc,
 			GridedEntityTileOrientation id, byte orientation) {
 		super(em, loc, id, orientation);
 		handle = 1;
