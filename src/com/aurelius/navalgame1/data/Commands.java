@@ -20,7 +20,7 @@ import com.jpii.gamekit.debug.*;
 public class Commands {
 	
 	/**
-	 * Commands loaded on game start
+	 * Loaded on start of game
 	 */
 	@SuppressWarnings("serial")
 	public static final ArrayList<Command> COMMANDS = new ArrayList<Command>() {{
@@ -39,72 +39,7 @@ public class Commands {
 	    	}
 	    }));
 	    
-	    add(new Command("version", "", "View version info", new CommandAction() { 
-	    	public void onRun(Command c, String[] args) {
-	    		NavalBattle.getDebugWindow().println(Constants.NAVALBATTLE_VERSION_TITLE + " (" + Constants.VERSION_CODE + ")");
-	    	}}
-	    ));
-	    
-	    add(new Command("credits", "", "NavalBattle credits", new CommandAction() { 
-	    	public void onRun(Command c, String[] args) {
-	    		NavalBattle.getDebugWindow().println("----------------- NavalBattle Credits -----------------");
-	    		NavalBattle.getDebugWindow().println("Anthony \"abauer\" Bauer - game design lead");
-	    		NavalBattle.getDebugWindow().println("Thomas \"TexasGamer\" Gaubert - SCM manager; NavalGame lead");
-	    		NavalBattle.getDebugWindow().println("Max \"maximusvladimir\" K. - rendering lead, grid lead, Pavo lead");
-	    		NavalBattle.getDebugWindow().println("JR \"DarkWarHero\" Vetus - TBD");
-	    		NavalBattle.getDebugWindow().println("Matt \"Matthis5point0\" Waller - TBD");
-	    		NavalBattle.getDebugWindow().println("Zach \"smeagle42\" Mathewson - Ship Designer");
-	    		NavalBattle.getDebugWindow().println("");
-	    		NavalBattle.getDebugWindow().println("GitHub - source code hosting");
-	    		NavalBattle.getDebugWindow().println("NavalGame - online social gaming");
-	    	}}
-	    ));
-	    
-	    add(new Command("setscore", "<score>", "Set game score", new CommandAction() { 
-	    	public void onRun(Command c, String[] args) {
-	    		try {
-	    			MainMenuWindow.spg.getGame().getTurnManager().getTurn().getPlayer().setscore(Integer.parseInt(args[0]));
-		    		NavalBattle.getDebugWindow().printInfo("Game score set to " + MainMenuWindow.spg.getGame().getTurnManager().getTurn().getPlayer().getScore());
-	    		} catch (Exception ex) {
-	    			NavalBattle.getDebugWindow().printError("Missing or invalid arg: score");
-	    		}
-	    	}}
-	    ));
-	    
-	    add(new Command("addscore", "<score>", "Add to game score", new CommandAction() { 
-	    	public void onRun(Command c, String[] args) {
-	    		try {
-	    			MainMenuWindow.spg.getGame().getTurnManager().getTurn().getPlayer().addScore(Integer.parseInt(args[0]));
-		    		NavalBattle.getDebugWindow().printInfo("Game score set to " + MainMenuWindow.spg.getGame().getTurnManager().getTurn().getPlayer().getScore());
-	    		} catch (Exception ex) {
-	    			NavalBattle.getDebugWindow().printError("Missing or invalid arg: score");
-	    		}
-	    	}}
-	    ));
-	    
-	    add(new Command("removescore", "<score>", "Subtract from game score", new CommandAction() { 
-	    	public void onRun(Command c, String[] args) {
-	    		try {
-	    			MainMenuWindow.spg.getGame().getTurnManager().getTurn().getPlayer().subtractscore(Integer.parseInt(args[0]));
-		    		NavalBattle.getDebugWindow().printInfo("Game score set to " + MainMenuWindow.spg.getGame().getTurnManager().getTurn().getPlayer().getScore());
-	    		} catch (Exception ex) {
-	    			NavalBattle.getDebugWindow().printError("Missing or invalid arg: score");
-	    		}
-	    	}}
-	    ));
-	    
-	    add(new Command("save", "<gamename>", "Saves the current game.", new CommandAction() {
-	    	public void onRun(Command c, String[] args) {
-	    		args[0] = args[0].toLowerCase();
-	    		NavalBattleIO.saveGame(Game.Instance,args[0]);
-	    	}
-	    }));
-	    
-	    add(new Command("getscore", "", "Get game score", new CommandAction() { 
-	    	public void onRun(Command c, String[] args) {
-		    	NavalBattle.getDebugWindow().printInfo("Game score: " + MainMenuWindow.spg.getGame().getTurnManager().getTurn().getPlayer().getScore());
-	    	}}
-	    ));
+	   
 	    
 	    add(new Command("openwindow", "<windowid>", "Force a window to appear", new CommandAction() { 
 	    	public void onRun(Command c, String[] args) {

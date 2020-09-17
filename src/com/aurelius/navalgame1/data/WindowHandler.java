@@ -14,7 +14,12 @@ public class WindowHandler extends com.jpii.gamekit.gui.WindowHandler{
 	public WindowHandler(int defaultx, int defaulty) {
 		super(defaultx, defaulty);
 		new LoginWindow();
-	
+		new LoggingInWindow();
+		new MainMenuWindow();
+		new HelpWindow();
+		new CreditsWindow();
+		new BroadcastWindow();
+		new UpdateWindow();
 		new GameOverWindow();
 		toasterManager = new Toaster();
 	}
