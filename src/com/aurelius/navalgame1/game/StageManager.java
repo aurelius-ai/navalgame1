@@ -2,7 +2,7 @@ package com.aurelius.navalgame1.game;
 
 import com.aurelius.navalgame1.NavalBattle;
 import com.aurelius.navalgame1.data.NavalGameData;
-import com.aurelius.navalgame1.game.entity.AircraftCarrier;
+import com.aurelius.navalgame1.game.entity.BirdFarm;
 import com.aurelius.navalgame1.game.entity.BattleShip;
 import com.aurelius.navalgame1.game.entity.PortEntity;
 import com.aurelius.navalgame1.game.entity.Boat;
@@ -15,7 +15,7 @@ import com.aurelius.navalgame1.gui.MainMenuWindow;
 import com.aurelius.navalgame1.pavo.Game;
 import com.aurelius.navalgame1.pavo.PavoHelper;
 import com.aurelius.navalgame1.pavo.WorldSize;
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 import com.aurelius.navalgame1.pavo.grid.GridHelper;
 import com.aurelius.navalgame1.pavo.grid.GridedEntityTileOrientation;
 import com.aurelius.navalgame1.pavo.grid.Location;
@@ -201,9 +201,9 @@ public class StageManager {
 				poll = gh.pollNextWaterTile(25);
 				placed = true;
 				if(GridHelper.canPlaceInGrid(nm,GridedEntityTileOrientation.ORIENTATION_LEFTTORIGHT, poll.getRow(), poll.getCol(), 5))
-					tm.addEntity(new AircraftCarrier(nm, poll,GridedEntityTileOrientation.ORIENTATION_LEFTTORIGHT),p);
+					tm.addEntity(new BirdFarm(nm, poll,GridedEntityTileOrientation.ORIENTATION_LEFTTORIGHT),p);
 				else if(GridHelper.canPlaceInGrid(nm,GridedEntityTileOrientation.ORIENTATION_TOPTOBOTTOM, poll.getRow(), poll.getCol(), 5))
-					tm.addEntity(new AircraftCarrier(nm, poll,GridedEntityTileOrientation.ORIENTATION_TOPTOBOTTOM),p);
+					tm.addEntity(new BirdFarm(nm, poll,GridedEntityTileOrientation.ORIENTATION_TOPTOBOTTOM),p);
 				else
 					placed = false;
 			}
@@ -248,7 +248,7 @@ public class StageManager {
 		int startCol = PavoHelper.getGameWidth(nm.getWorld().getWorldSize()) * 2-1;
 		for(int row = 3; row>0; row--){
 			for(int col = 10; col>0; col--){
-				Entity e = nm.findEntity(startRow-row,startCol-col);
+				Asset e = nm.findEntity(startRow-row,startCol-col);
 				if(e!=null){
 					nm.getGame().getTurnManager().removeEntity(e);
 					e.dispose();
@@ -259,7 +259,7 @@ public class StageManager {
 		startRow = (PavoHelper.getGameHeight(nm.getWorld().getWorldSize())+1)/2;
 		for(int row = 3; row>0; row--){
 			for(int col = 10; col>0; col--){
-				Entity e = nm.findEntity(startRow-row,startCol-col);
+				Asset e = nm.findEntity(startRow-row,startCol-col);
 				if(e!=null){
 					nm.getGame().getTurnManager().removeEntity(e);
 					e.dispose();
@@ -270,7 +270,7 @@ public class StageManager {
 		startRow = (PavoHelper.getGameHeight(nm.getWorld().getWorldSize())+1)/2*3;
 		for(int row = 3; row>0; row--){
 			for(int col = 10; col>0; col--){
-				Entity e = nm.findEntity(startRow-row,startCol-col);
+				Asset e = nm.findEntity(startRow-row,startCol-col);
 				if(e!=null){
 					nm.getGame().getTurnManager().removeEntity(e);
 					e.dispose();

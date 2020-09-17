@@ -1,13 +1,13 @@
 package com.aurelius.navalgame1.game;
 
-import com.aurelius.navalgame1.game.entity.AircraftCarrier;
+import com.aurelius.navalgame1.game.entity.BirdFarm;
 import com.aurelius.navalgame1.game.entity.BattleShip;
 import com.aurelius.navalgame1.game.entity.Boat;
 import com.aurelius.navalgame1.pavo.Game;
 import com.aurelius.navalgame1.pavo.PavoHelper;
 import com.aurelius.navalgame1.pavo.World;
-import com.aurelius.navalgame1.pavo.grid.Entity;
-import com.aurelius.navalgame1.pavo.grid.EntityManager;
+import com.aurelius.navalgame1.pavo.grid.Asset;
+import com.aurelius.navalgame1.pavo.grid.AssetManager;
 import com.aurelius.navalgame1.pavo.grid.GridHelper;
 import com.aurelius.navalgame1.pavo.grid.GridedEntityTileOrientation;
 import com.aurelius.navalgame1.util.FileUtils;
@@ -15,7 +15,7 @@ import com.aurelius.navalgame1.util.FileUtils;
 /**
  * The entity manager specified for NavalBattle.
  */
-public class NavalManager extends EntityManager {
+public class NavalManager extends AssetManager {
 	private static final long serialVersionUID = 1L;
 	public static GridedEntityTileOrientation w1, w2, w3;
 	
@@ -53,7 +53,7 @@ public class NavalManager extends EntityManager {
 			BattleShip.BATTLESHIP_ID = battleShipId;
 		}
 		if (acarrierId != null) {
-			AircraftCarrier.AIRCRAFTCARRIER_ID = acarrierId;
+			BirdFarm.BIRDFARM_ID = acarrierId;
 		}
 		if (boatId != null) {
 			Boat.SUBMARINE_ID = boatId;
@@ -83,7 +83,7 @@ public class NavalManager extends EntityManager {
 	
 	public void update(long ticksPassed) {
 		for (int c = 0; c < this.getTotalEntities(); c++) {
-			Entity e = getEntity(c);
+			Asset e = getEntity(c);
 			if (e != null){
 				e.onUpdate(ticksPassed);
 			}

@@ -17,6 +17,13 @@ public class HookStream extends PrintStream {
 		super(out);
 	}
 
+	/**
+	 * @param fileName
+	 * @throws FileNotFoundException
+	 */
+	public HookStream(String fileName) throws FileNotFoundException {
+		super(fileName);
+	}
 
 	/**
 	 * @param file
@@ -34,6 +41,38 @@ public class HookStream extends PrintStream {
 		super(out, autoFlush);
 	}
 
+	/**
+	 * @param fileName
+	 * @param csn
+	 * @throws FileNotFoundException
+	 * @throws UnsupportedEncodingException
+	 */
+	public HookStream(String fileName, String csn)
+			throws FileNotFoundException, UnsupportedEncodingException {
+		super(fileName, csn);
+	}
+
+	/**
+	 * @param file
+	 * @param csn
+	 * @throws FileNotFoundException
+	 * @throws UnsupportedEncodingException
+	 */
+	public HookStream(File file, String csn) throws FileNotFoundException,
+			UnsupportedEncodingException {
+		super(file, csn);
+	}
+
+	/**
+	 * @param out
+	 * @param autoFlush
+	 * @param encoding
+	 * @throws UnsupportedEncodingException
+	 */
+	public HookStream(OutputStream out, boolean autoFlush, String encoding)
+			throws UnsupportedEncodingException {
+		super(out, autoFlush, encoding);
+	}
 	
 	public void println(String s) {
 		super.println(s);

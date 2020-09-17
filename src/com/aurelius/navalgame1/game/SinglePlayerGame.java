@@ -27,7 +27,39 @@ public class SinglePlayerGame extends BaseWindow {
 		game = sm.getGameComponent();
 	}
 	
-
+	public void setNewGame(){
+		if (game != null) {
+		getContentPane().remove(game);
+		}
+		
+		game = sm.newGameComponent();
+		setSize(Game.Settings.initialWidth,Game.Settings.initialHeight-40);
+		setGameVars();
+		getContentPane().add(game);
+	}
+	
+	public void setSize(int width, int height) {
+		if (game != null) {
+			game.setSize(width,height);
+		}
+		super.setSize(width,height);
+	}
+	
+	public void setGameVars() {
+		game.setLocation(0,40);
+		setContentPane(game);
+		this.getContentPane().setLayout(null);
+		setSize(Game.Settings.initialWidth,Game.Settings.initialHeight-40);
+		setLocation(0,0);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+	}
+	
+	public void setVisible(boolean visible){
+		super.setVisible(visible);
+		if(isVisible()){
+			NavalBattle.getWindowHandler().disposeContained();
+		}
+	}
 	
 	public void toggleFullscreen(){
 		game.toggleFullscreen();

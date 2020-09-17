@@ -21,7 +21,16 @@ public class NavalClient extends PavoClient {
 			String part = message.replace("SEED:","");
 			seed = Long.parseLong(part);
 		}
-	
+		else if (message.startsWith("battleship:")) {
+			String part = message.replace("battleship:","");
+			String col = part.substring(0, part.indexOf(","));
+			String row = part.substring(part.indexOf(",")+1);
+			
+			int c = Integer.parseInt(col);
+			int r = Integer.parseInt(row);
+			new BattleShip(game.getWorld().getEntityManager(),
+					new Location(r,c), GridedEntityTileOrientation.ORIENTATION_LEFTTORIGHT);
+		}
 		else if (message.startsWith("bounds:")) {
 			String part = message.replace("bounds:","");
 			String col = part.substring(0, part.indexOf(","));
