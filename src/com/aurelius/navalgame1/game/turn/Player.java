@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import com.aurelius.navalgame1.game.NavalGame;
 import com.aurelius.navalgame1.game.NavalManager;
 import com.aurelius.navalgame1.game.entity.MoveableEntity;
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 
 public class Player {
 	
-	ArrayList<Entity> entities;
+	ArrayList<Asset> assets;
 	public String name;
 	protected boolean turnOver;
 	int score;
@@ -19,7 +19,7 @@ public class Player {
 	boolean diplomacy = false;
 	
 	public Player(String name){
-		entities = new ArrayList<Entity>();
+		assets = new ArrayList<Asset>();
 		this.name = name;
 		turnOver = false;
 		score = 0;
@@ -48,13 +48,13 @@ public class Player {
 	public void resetTurn(){
 		resetMovement();
 		resetAttack();
-		if(entities.size()>0&&entities.get(0)!=null)
-		((NavalManager)entities.get(0).getManager()).getGame().getHud().update();
+		if(assets.size()>0&&assets.get(0)!=null)
+		((NavalManager)assets.get(0).getManager()).getGame().getHud().update();
 	}
 	
 	public void resetMovement(){
-		for (int index =0; index<entities.size(); index++){
-			Entity e1 = entities.get(index);
+		for (int index =0; index<assets.size(); index++){
+			Asset e1 = assets.get(index);
 			if(e1.getHandle()%10 == 1){
 				MoveableEntity e = (MoveableEntity) e1;
 				e.resetMovement();
@@ -63,8 +63,8 @@ public class Player {
 	}
 	
 	public void resetAttack(){
-		for (int index =0; index<entities.size(); index++){
-			Entity e1 = entities.get(index);
+		for (int index =0; index<assets.size(); index++){
+			Asset e1 = assets.get(index);
 			if(e1.getHandle()%10 == 1){
 				MoveableEntity e = (MoveableEntity) e1;
 				e.resetAttack();
@@ -72,17 +72,17 @@ public class Player {
 		}
 	}
 	
-	public boolean myEntity(Entity e){
-		return entities.contains(e);
+	public boolean myEntity(Asset e){
+		return assets.contains(e);
 	}
 	
-	public void addEntity(Entity e){
-		entities.add(e);
+	public void addEntity(Asset e){
+		assets.add(e);
 		e.setTeamColor(color);
 	}
 	
-	public Entity getEntity(int index) {
-		return entities.get(index);
+	public Asset getEntity(int index) {
+		return assets.get(index);
 	}
 	
 	public boolean isTurnOver(){
@@ -90,7 +90,7 @@ public class Player {
 	}
 	
 	public int getTotalEntities() {
-		return entities.size();
+		return assets.size();
 	}
 	
 	public void addScore(int add){
@@ -109,25 +109,25 @@ public class Player {
 		return score;
 	}
 	
-	public void removeEntity(Entity e){
-		while(entities.remove(e))
+	public void removeEntity(Asset e){
+		while(assets.remove(e))
 			;
 	}
 	
-	public void nextEntity(Entity e){
-		Entity temp = null;
+	public void nextEntity(Asset e){
+		Asset temp = null;
 		if(e==null){
-			temp = entities.get(0);
+			temp = assets.get(0);
 		}
 		else{
-			if(entities.contains(e)){
-				int index = entities.indexOf(e)+1;
-				if(index>=entities.size())
-					index -= entities.size();
-				temp = entities.get(index);
+			if(assets.contains(e)){
+				int index = assets.indexOf(e)+1;
+				if(index>=assets.size())
+					index -= assets.size();
+				temp = assets.get(index);
 			}
 			else{
-				temp = entities.get(0);
+				temp = assets.get(0);
 			}
 		}
 		if(temp == null)
@@ -137,16 +137,16 @@ public class Player {
 	}
 
 	public boolean ownsEntity() {
-		for(int index = 0; index<entities.size();index++){
-			if(entities.get(index).getHandle()%10 == 1)
+		for(int index = 0; index<assets.size();index++){
+			if(assets.get(index).getHandle()%10 == 1)
 				return true;
 		}
 		return false;
 	}
 
 	public boolean ownsPort() {		
-		for(int index = 0; index<entities.size();index++){
-			if(entities.get(index).getHandle() == 2)
+		for(int index = 0; index<assets.size();index++){
+			if(assets.get(index).getHandle() == 2)
 				return true;
 		}		
 		return false;

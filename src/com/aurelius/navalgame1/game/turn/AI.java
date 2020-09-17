@@ -10,33 +10,33 @@ import com.aurelius.navalgame1.game.entity.PortEntity;
 import com.aurelius.navalgame1.game.entity.Boat;
 import com.aurelius.navalgame1.game.turn.DamageCalculator;
 import com.aurelius.navalgame1.pavo.Game;
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 import com.aurelius.navalgame1.pavo.grid.GridHelper;
 import com.aurelius.navalgame1.pavo.grid.Location;
 import com.aurelius.navalgame1.util.GrammarManager;
 
 public class AI extends Player{
 	
-	ArrayList<Entity> primaryEnemies;
-	ArrayList<Entity> secondaryEnemies;
+	ArrayList<Asset> primaryEnemies;
+	ArrayList<Asset> secondaryEnemies;
 	int numBS, numPS, numAC, numSM;
 	
 	
 	public AI() {
 		super(getNewName());
-		primaryEnemies = new ArrayList<Entity>();
-		secondaryEnemies = new ArrayList<Entity>();
+		primaryEnemies = new ArrayList<Asset>();
+		secondaryEnemies = new ArrayList<Asset>();
 	}
 	
 	private static String getNewName() {
 		return GrammarManager.generateFullName(Game.Settings.rand.nextInt());
 	}
 	
-	public void addEnemyEntityP(Entity e){
+	public void addEnemyEntityP(Asset e){
 		primaryEnemies.add(e);
 	}
 
-	public void addEnemyEntityS(Entity e){
+	public void addEnemyEntityS(Asset e){
 		secondaryEnemies.add(e);
 	}
 	
@@ -51,7 +51,7 @@ public class AI extends Player{
 	public void takeTurn(){
 		for(int k = 0; k < getTotalEntities(); k++)
 		{
-			Entity ent = getEntity(k);
+			Asset ent = getEntity(k);
 			
 		//	this.nextEntity(ent);
 			//delay(10000);
@@ -154,7 +154,7 @@ public class AI extends Player{
 	private void getShipNumbers(){
 	numPS = numBS = numSM = numAC = 0;
 		for(int k = 0; k < getTotalEntities(); k++){
-			Entity ent = getEntity(k);
+			Asset ent = getEntity(k);
 			if(ent.getHandle()%10 == 1){
 				MoveableEntity currentEntity;
 				currentEntity = (MoveableEntity)ent;
@@ -220,7 +220,7 @@ public class AI extends Player{
 	public void primaryAttack(int n, MoveableEntity currentEntity )
 	{
 		
-		Entity ene = primaryEnemies.get(pickEnemyP(n));
+		Asset ene = primaryEnemies.get(pickEnemyP(n));
 		if(ene.getHandle()==2){
 			PortEntity enemyEntity;
 			enemyEntity = (PortEntity)ene;
@@ -235,7 +235,7 @@ public class AI extends Player{
 	
 	public void secondaryAttack(int n, MoveableEntity currentEntity)
 	{
-		Entity ene = secondaryEnemies.get(pickEnemyS(n));
+		Asset ene = secondaryEnemies.get(pickEnemyS(n));
 		if(ene.getHandle()==2){
 			PortEntity enemyEntity;
 			enemyEntity = (PortEntity)ene;
@@ -248,8 +248,8 @@ public class AI extends Player{
 		}
 	}
 	
-	private void organizeMoveableEnemiesHP(ArrayList<Entity> Enemy){		
-		Entity temp;
+	private void organizeMoveableEnemiesHP(ArrayList<Asset> Enemy){		
+		Asset temp;
 		for (int p = 1; p < Enemy.size(); p++){			
 			for (int q = 0; q < Enemy.size()-1; q++){
 				if(getHealth(Enemy.get(q))>getHealth(Enemy.get(q+1))){
@@ -261,7 +261,7 @@ public class AI extends Player{
 		}
 	}
 	
-	private int getHealth(Entity e){
+	private int getHealth(Asset e){
 		if(e.getHandle()==2)
 			return ((PortEntity)e).getPercentHealth();
 		if(e.getHandle()%10==1)
@@ -405,7 +405,7 @@ public class AI extends Player{
 		int topY = (e.getLocation().getRow()-e.getSecondaryRange())+1;	 		
 		for (int x = topX; x < (e.getLocation().getCol()+e.getSecondaryRange())+1; x++) {
 			for (int y = topY; y < (e.getLocation().getRow()+e.getSecondaryRange())+1; y++) {
-				Entity location = e.getManager().findEntity(y,x);
+				Asset location = e.getManager().findEntity(y,x);
 				if(location!=null){
 					Player temp = ((NavalManager)location.getManager()).getGame().getTurnManager().findPlayer(location); 
 					if (temp!=null){
@@ -432,7 +432,7 @@ public class AI extends Player{
 		int topY = (e.getLocation().getRow()-e.getPrimaryRange())+1;	 		
 		for (int x = topX; x < (e.getLocation().getCol()+e.getPrimaryRange())+1; x++) {
 			for (int y = topY; y < (e.getLocation().getRow()+e.getPrimaryRange())+1; y++) {
-				Entity location = e.getManager().findEntity(y,x);
+				Asset location = e.getManager().findEntity(y,x);
 				if(location!=null){
 					Player temp = ((NavalManager)location.getManager()).getGame().getTurnManager().findPlayer(location); 
 					if (temp!=null){
@@ -454,9 +454,9 @@ public class AI extends Player{
 	}
 	
 	public void reset(){
-		if(entities.size()==0)
+		if(assets.size()==0)
 			return;
-		NavalManager nm = (NavalManager)entities.get(0).getManager();
+		NavalManager nm = (NavalManager)assets.get(0).getManager();
 		
 		for(int index = 0; index<primaryEnemies.size(); index+=0){
 			primaryEnemies.get(index).dispose();
@@ -466,9 +466,9 @@ public class AI extends Player{
 			secondaryEnemies.get(index).dispose();
 			nm.getGame().getTurnManager().removeEntity(secondaryEnemies.remove(index));
 		}
-		for(int index = 0; index<entities.size(); index+=0){
-			entities.get(index).dispose();
-			nm.getGame().getTurnManager().removeEntity(entities.remove(index));
+		for(int index = 0; index<assets.size(); index+=0){
+			assets.get(index).dispose();
+			nm.getGame().getTurnManager().removeEntity(assets.remove(index));
 		}
 	}
 	

@@ -2,7 +2,7 @@ package com.aurelius.navalgame1.game.turn;
 
 import com.aurelius.navalgame1.game.StageManager;
 import com.aurelius.navalgame1.gui.MainMenuWindow;
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 
 public class TurnManager {
 	
@@ -35,7 +35,7 @@ public class TurnManager {
 		return turnnumber;
 	}
 	
-	public void addEntity(Entity e,Player p){
+	public void addEntity(Asset e,Player p){
 		p.addEntity(e);
 	}
 	
@@ -43,7 +43,7 @@ public class TurnManager {
 		return players.getPlayer(pos-1);
 	}
 	
-	public Player findPlayer(Entity b){
+	public Player findPlayer(Asset b){
 		for(int index = 0; index<players.players.size(); index++){
 			if(players.players.get(index).myEntity(b))
 				return players.players.get(index);
@@ -51,7 +51,7 @@ public class TurnManager {
 		return null;
 	}
 	
-	public void removeEntity(Entity e){
+	public void removeEntity(Asset e){
 		for(int index = 0; index<players.players.size(); index++){
 			players.players.get(index).removeEntity(e);				
 		}
