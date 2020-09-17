@@ -8,13 +8,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 import com.aurelius.navalgame1.pavo.grid.Tile;
 import com.aurelius.navalgame1.pavo.io.PavoImage;
 import com.aurelius.navalgame1.renderer.Helper;
 import com.aurelius.navalgame1.renderer.RenderConstants;
 
-import maximusvladimir.dagen.*;
+import ellison.oliver.*;
 
 /**
  * The main file dealing with Chunks, which the world depends on for visuals.
@@ -23,7 +23,7 @@ public class Chunk extends Renderable{
 	private static final long serialVersionUID = 1L;
 	int x,z;
 	boolean generated = false;
-	public Tile<Entity> Tile00, Tile10, Tile01,Tile11;
+	public Tile<Asset> Tile00, Tile10, Tile01,Tile11;
 	//byte Overlay00;
 	public byte Overlay00,Overlay10, Overlay01, Overlay11;
 	public short water00 = 0,water01 = 0,water10 = 0,water11 = 0;

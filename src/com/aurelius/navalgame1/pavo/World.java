@@ -9,11 +9,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import com.aurelius.navalgame1.io.Interactable;
-import com.aurelius.navalgame1.pavo.grid.EntityManager;
+import com.aurelius.navalgame1.pavo.grid.AssetManager;
 import com.aurelius.navalgame1.pavo.grid.Location;
 import com.aurelius.navalgame1.pavo.io.PavoImage;
 
-import maximusvladimir.dagen.Rand;
+import ellison.oliver.Rand;
 
 
 public class World extends Renderable implements Interactable {
@@ -28,7 +28,7 @@ public class World extends Renderable implements Interactable {
 	int height = 8;
 	int lww = 800;
 	int lwh = 600;
-	EntityManager em;
+	AssetManager em;
 	TimeManager time = new TimeManager();
 	int sx = 0, anisx = 0, anisy = 0,sy = 0;
 	int anix, aniy;
@@ -50,7 +50,7 @@ public class World extends Renderable implements Interactable {
 				chunks[i].setZ(z);
 			}
 		}
-		em = new EntityManager(this);
+		em = new AssetManager(this);
 		generated = new boolean[chunks.length];
 		buffer = new PavoImage(Game.Settings.currentWidth,Game.Settings.currentHeight,BufferedImage.TYPE_3BYTE_BGR);
 		makeNoise();
@@ -76,7 +76,7 @@ public class World extends Renderable implements Interactable {
 	public Game getGame() {
 		return game;
 	}
-	public void setEntityManager(EntityManager em) {
+	public void setEntityManager(AssetManager em) {
 		this.em = em;
 	}
 	public Chunk getChunk(int index) {
@@ -181,11 +181,11 @@ public class World extends Renderable implements Interactable {
 			chunks[c] = chunk;
 		}
 	}
-//	public Entity getMotionEntity() {
+//	public Asset getMotionEntity() {
 //		return motionEntity;
 //	}
-//	Entity motionEntity;
-//	public void setMotionEntity(Entity e) {
+//	Asset motionEntity;
+//	public void setMotionEntity(Asset e) {
 //		motionEntity = e;
 //	}
 	boolean chunkrender = false;
@@ -327,7 +327,7 @@ public class World extends Renderable implements Interactable {
 	public WorldSize getWorldSize() {
 		return ws;
 	}
-	public EntityManager getEntityManager() {
+	public AssetManager getEntityManager() {
 		return em;
 	}
 	public TimeManager getTimeManager() {

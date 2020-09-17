@@ -13,7 +13,7 @@ import java.awt.Toolkit;
 
 import com.aurelius.navalgame1.pavo.io.NetworkState;
 
-import maximusvladimir.dagen.Rand;
+import ellison.oliver.Rand;
 
 public class PavoSettings {
 	public PavoSettings() {

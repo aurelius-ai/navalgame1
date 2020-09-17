@@ -4,8 +4,8 @@
  */
 package com.aurelius.navalgame1.pavo;
 
-import maximusvladimir.dagen.Perlin;
-import maximusvladimir.dagen.Rand;
+import ellison.oliver.Perlin;
+import ellison.oliver.Rand;
 
 /**
  * Procedural-layer map generator for Pavo

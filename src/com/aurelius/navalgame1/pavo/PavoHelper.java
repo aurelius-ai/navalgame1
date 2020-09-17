@@ -15,11 +15,11 @@ import java.awt.MultipleGradientPaint.CycleMethod;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 import com.aurelius.navalgame1.pavo.grid.Location;
 import com.aurelius.navalgame1.pavo.io.PavoImage;
 
-import maximusvladimir.dagen.Rand;
+import ellison.oliver.Rand;
 
 public class PavoHelper {
 	private static SystemSpeed calcs;
@@ -391,7 +391,7 @@ public class PavoHelper {
      * @return
      * @deprecated Not used anymore.
      */
-	public static boolean isEntityVisibleOnScreen(World w, Entity ent) {
+	public static boolean isEntityVisibleOnScreen(World w, Asset ent) {
 		if (w == null || ent == null || ent.getLocation() == null)
 			return false;
 		int sx = w.getScreenX();

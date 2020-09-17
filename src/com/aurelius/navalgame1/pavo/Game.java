@@ -21,7 +21,7 @@ import com.aurelius.navalgame1.NavalBattle;
 import com.aurelius.navalgame1.data.NavalGameData;
 import com.aurelius.navalgame1.game.NavalClient;
 import com.aurelius.navalgame1.game.NavalServer;
-import com.aurelius.navalgame1.pavo.grid.Entity;
+import com.aurelius.navalgame1.pavo.grid.Asset;
 import com.aurelius.navalgame1.pavo.grid.GridedEntityTileOrientation;
 import com.aurelius.navalgame1.pavo.grid.Location;
 import com.aurelius.navalgame1.pavo.grid.Tile;
@@ -450,7 +450,7 @@ public class Game extends Renderable implements Runnable, Serializable {
 		
 		int tol = 20;
 		if (motionEnt != null && motionEnt.readyForMove) {
-			Entity e = motionEnt;
+			Asset e = motionEnt;
 			
 			if (loadMotionImage == null) {
 				motionDest = PavoHelper.convertLocationToScreen(getWorld(),e.getLocation());
@@ -477,7 +477,7 @@ public class Game extends Renderable implements Runnable, Serializable {
 		
 		
 		if (motionEnt != null && motionEnt.readyForMove) {
-			Entity e = motionEnt;
+			Asset e = motionEnt;
 			if (e != null)
 				g.drawImage(this.loadMotionImage, motionDest.x,motionDest.y,null);
 		}
@@ -491,7 +491,7 @@ public class Game extends Renderable implements Runnable, Serializable {
 		getWindows().unlock();
 		Game.getStats().sBm3ns02AKa99mqp392(System.currentTimeMillis() - sjan);
 	}
-	Entity motionEnt;
+	Asset motionEnt;
 	float motionSpeed = 2.35f;
 	Point motionDest = new Point(0,0);
 	Location motionDestiny = Location.Unknown;
@@ -511,7 +511,7 @@ public class Game extends Renderable implements Runnable, Serializable {
 			return true;
 	}
 	
-	public void setAnimatedMotion(Entity motionEntity,Location destiny) {
+	public void setAnimatedMotion(Asset motionEntity,Location destiny) {
 		if (motionEnt != null) {
 			motionEnt.moveTo(motionDestiny);
 			motionEnt = null;
@@ -608,7 +608,7 @@ public class Game extends Renderable implements Runnable, Serializable {
 		chy /= 50;
 		if (chx < PavoHelper.getGameWidth(getWorld().getWorldSize()) * 2 && chy < PavoHelper.getGameHeight(getWorld().getWorldSize()) * 2 &&
 		chx >= 0 && chy >= 0) {
-			Tile<Entity> e = (getWorld().getEntityManager().getTile(chy,chx));
+			Tile<Asset> e = (getWorld().getEntityManager().getTile(chy,chx));
 			if (e != null) {
 				int acuratex = (-getWorld().getScreenX()) + me.getX() - (chx*50);
 				int acuratey = (-getWorld().getScreenY()) + me.getY() - (chy*50);
@@ -665,7 +665,7 @@ public class Game extends Renderable implements Runnable, Serializable {
 		chy /= 50;
 		if (chx < PavoHelper.getGameWidth(getWorld().getWorldSize()) * 2 && chy < PavoHelper.getGameHeight(getWorld().getWorldSize()) * 2 &&
 		chx >= 0 && chy >= 0) {
-			Tile<Entity> e = getWorld().getEntityManager().getTile(chy,chx);
+			Tile<Asset> e = getWorld().getEntityManager().getTile(chy,chx);
 			if (e != null) {
 				int acuratex = (-getWorld().getScreenX()) + lastmx - (chx*50);
 				int acuratey = (-getWorld().getScreenY()) + lastmy - (chy*50);
