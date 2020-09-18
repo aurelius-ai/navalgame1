@@ -62,7 +62,7 @@ public class Control {
 	 * NO TOUCHING!!!
 	 * @return NO TOUCHING!!!
 	 */
-	public long alo_livrezon_pa_pèmèt() {
+	public long alo_livrezon_pa_pÃ¨mÃ¨t() {
 		return HANDLE;
 	}
 	
