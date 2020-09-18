@@ -4,7 +4,7 @@
  */
 package com.aurelius.navalgame1.util;
 
-import maximusvladimir.dagen.Rand;
+import ellison.oliver.Rand;
 
 /**
  * Primarily for the sake of AI name generation.
