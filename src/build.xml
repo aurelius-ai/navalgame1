@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project NavalBattle">
+    <target name="create_run_jar">
+        <jar destfile="current.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="com.jpii.navalbattle.NavalBattle"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="./bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/commons-codec-1.7.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/commons-io-2.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/commons-lang3-3.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/gamekit-1.0.jar"/>
+        </jar>
+    </target>
+</project>

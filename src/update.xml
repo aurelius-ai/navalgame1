@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navalbattle>
+	<string name="version_code">12</string>
+	<string name="version_readable">1.0</string>
+	<string name="update_text">NavalBattle 1.0 is here!
+
+Changelog:
++ It's a game</string>
+	<string name="update_url">http://github.com/JPII/NavalBattle</string>
+	
+	<string name="announcement_code">-1</string>
+	<string name="announcement_title">Welcome to NavalBattle</string>
+	<string name="announcement_text">Thanks for playing! Leave feedback here: https://github.com/JPII/NavalBattle/issues</string>
+	<string name="announcement_url">http://github.com/JPII/NavalBattle</string>
+</navalbattle>
