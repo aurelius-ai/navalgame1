@@ -1,4 +1,4 @@
-# navalgames
+# Naval Games
 Developed strategic naval games in java.  
 
 ##### Boat is a submarine 
